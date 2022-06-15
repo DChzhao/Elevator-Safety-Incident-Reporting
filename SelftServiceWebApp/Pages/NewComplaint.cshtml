@@ -1,0 +1,55 @@
+﻿@page
+@using SelftServiceWebApp.Models
+@model SelftServiceWebApp.Pages.NewComplaintModel
+
+@{
+    ViewData["Title"] = "New Complaint";
+}
+
+<h1>New Complaint</h1>
+
+<h4>Fill Data</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Complaint.Created" class="control-label"></label>
+                <input asp-for="Complaint.Created" class="form-control" />
+                <span asp-validation-for="Complaint.Created" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Complaint.ElevatorUnitId" class="control-label"></label>
+                <select asp-for="Complaint.ElevatorUnitId"  class ="form-control" asp-items="Model.ElevatorUnitsOptions"></select>
+            </div>
+               <br />
+            <div class="form-group">
+                <label asp-for="Complaint.Type"  class="control-label"></label>
+                <select asp-for="Complaint.Type" class="form-control"   asp-items="Html.GetEnumSelectList<ComplaintType>()">
+                    @*<option selected="selected" value="">Please select</option>*@
+                </select>
+                <span asp-validation-for="Complaint.Type"  class="text-danger"></span>
+            </div>
+               <br />
+            <div class="form-group">
+                <label asp-for="Complaint.Description" class="control-label"></label>
+                <input asp-for="Complaint.Description" class="form-control" />
+                <span asp-validation-for="Complaint.Description" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@*<div>
+    <a asp-page="Index">Back to List</a>
+</div>*@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
