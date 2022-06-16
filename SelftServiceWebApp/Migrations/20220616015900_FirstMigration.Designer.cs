@@ -12,7 +12,7 @@ using SelftServiceWebApp.Data;
 namespace SelftServiceWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220615034242_First-Migration")]
+    [Migration("20220616015900_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
