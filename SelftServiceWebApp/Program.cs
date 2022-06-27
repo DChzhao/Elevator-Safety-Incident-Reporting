@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddMvc();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
@@ -16,7 +17,7 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddMvc().AddRazorPagesOptions(options =>
 {
-    options.Conventions.AddPageRoute("/NewComplaint", "");
+    options.Conventions.AddPageRoute("/LandingPage", "");
 });
 
 var app = builder.Build();
@@ -42,7 +43,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
-
+//app.UseStatusCodePages();
+//app.UseMvcWithDefaultRoute();
 
 
 app.Run();
