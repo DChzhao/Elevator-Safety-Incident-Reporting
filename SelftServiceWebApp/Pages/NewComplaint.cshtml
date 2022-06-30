@@ -34,9 +34,11 @@
             </div>
                <br />
             <div class="form-group">
+               
                 <label asp-for="Complaint.Description" class="control-label"></label>
-                <input asp-for="Complaint.Description" class="form-control" />
+             <textarea asp-for="Complaint.Description" class="form-control" text-wrap:normal" type="text" placeholder="Please add the descriprion here" style = "width: 150%;height: 100px"></textarea>
                 <span asp-validation-for="Complaint.Description" class="text-danger"></span>
+           
             </div>
             <br />
             <div class="form-group">
