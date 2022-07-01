@@ -3,30 +3,26 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Self Service </title>
+    <title>@ViewData["Title"] - ISD SBD Reports</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/SelftServiceWebApp.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/index.css" />
+
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <header style="background-color:#025988;">
+        <nav class="navbar mdc-bg-dark-blue">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Self Service</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                      @*  <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>*@
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
+                <div class="row">
+                    <div class="col-12">
+                        <a aria-labelledby="imgMainHeaderImage" aria-describedby="imgMainHeaderImage" href="https://www.miamidade.gov/global/home.page" target="_blank">
+                            <img id=imgMainHeaderImage src="https://www.miamidade.gov/templates/developer-template/images/md-logo.png"
+                                 class="mdc-global-header__mdc-logo" alt="Miami-Dade County Homepage" />
+                        </a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a class="navbar-brand text-white" asp-page="/Index">ISD SBD Reports</a>
+
+                    </div>
                 </div>
             </div>
         </nav>
@@ -37,16 +33,38 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="footer border-top footer text-muted mdc-bg-dark-blue">
         <div class="container">
-            &copy; 2022 - Self Service - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <div class="d-flex bd-highlight p-0">
+                <div aria-labelledby="imgSecondHeaderImage" aria-describedby="imgSecondHeaderImage" class="p-1 bd-highlight vertical-center">
+                    <a class="mdc-global-footer" href="https://www.miamidade.gov/global/home.page" target="_blank">
+                        <img id="imgSecondHeaderImage" src="~/images/mdLogo.png"
+                             class="img-fluid d-lg-inline" alt="Miami-Dade County Homepage" title="@(@System.Reflection.Assembly.GetAssembly(GetType()).GetName().Version.ToString()) " />
+                    </a>
+                </div>
+                <div class="bd-highlight px-3">
+                </div>
+                <div class="bd-highlight px-3">
+                </div>
+                <div class="bd-highlight px-3">
+                </div>
+                <div aria-labelledby="lblAboutMiamiDade" aria-describedby="lblAboutMiamiDade" role="navigation" class="bd-highlight px-4">
+                    <a id="lblAboutMiamiDade" class="text-white" href="https://www.miamidade.gov/global/disclaimer/about-miami-dade-county.page" target="_blank">About Miami-Dade</a>
+                </div>
+                <div aria-labelledby="lblDisclaimer" aria-describedby="lblDisclaimer" role="navigation" class="bd-highlight px-4">
+                    <a id="lblDisclaimer" class="text-white" href="https://www.miamidade.gov/global/disclaimer/disclaimer.page" target="_blank">Disclaimer</a>
+                </div>
+                <div aria-labelledby="lblPrivacyStatement" aria-describedby="lblPrivacyStatement" role="navigation" class="bd-highlight px-5">
+                    <a id="lblPrivacyStatement" class="text-white" href="https://www.miamidade.gov/global/disclaimer/privacy-and-security.page" target="_blank">Privacy Statement</a>
+                </div>
+            </div>
         </div>
     </footer>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
-    @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/lib/powerbi-client/dist/powerbi.min.js"></script>
+    <script src="~/js/index.js"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
