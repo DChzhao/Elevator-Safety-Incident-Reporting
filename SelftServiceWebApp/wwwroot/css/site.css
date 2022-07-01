@@ -1,18 +1,428 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+/* Change the anchor colors to match with the standard MDC 
+    color scheme of #025988 for header and buttons background 
+    colors.
+
+    This initial color is just for the initial generated project
+    index or home page.
+*/
+a {
+    color: #0366d6;
+    /*color: #000000;*/
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #025988;
+        text-decoration: underline;
+        font-weight: bold;
+    }
+
+    a.navbar-brand {
+        white-space: normal;
+        text-align: center;
+        word-break: break-all;
+    }
+
+    a.setMarginsLeft5Right10 {
+        margin-left: 5px;
+        margin-right: 10px
+    }
+
+hr.Blue1pt {
+    border: 1px solid #025988;
+}
+
+hr.Blue2pt {
+    border: 2px solid #025988;
+    padding-bottom: 0px;
+    margin-bottom: 1px;
+}
+
+h1.general-page_title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    border-bottom: 5px solid #02A2F7;
+    margin-top: 1rem;
+    padding-bottom: 4px;
+    margin-bottom: 1rem;
+}
+
+h2.general-page_title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    border-bottom: 5px solid #02A2F7;
+    margin-top: 1rem;
+    padding-bottom: 4px;
+    margin-bottom: 1rem;
+}
+
+h3.general-page_title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-bottom: 5px solid #02A2F7;
+    margin-top: 1rem;
+    padding-bottom: 4px;
+    margin-bottom: 1rem;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #025988;
+    border-color: #1861ac;
+    border-radius: 18px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+/* ------------------------------------*/
+/* ------>>> Miami Dade Styles<<<------*/
+/* ------------------------------------*/
+
+
+/*
+    Container styles
+*/
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 1600px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 1600px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 1600px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 1600px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1600px;
+    }
+}
+
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+/*
+    Boostrap NavBar Menu item overrides.
+*/
+.dropdown-divider {
+    height: 0;
+    margin: 0.5rem 0;
+    overflow: hidden;
+    border-top: 1px solid #e9ecef;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #000;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+
+    .dropdown-item:hover, .dropdown-item:focus {
+        color: #fff;
+        text-decoration: none;
+        background-color: #025988;
+    }
+
+    .dropdown-item.active, .dropdown-item:active {
+        color: #fff;
+        text-decoration: none;
+        background-color: #02A2F7;
+    }
+
+    .dropdown-item.disabled, .dropdown-item:disabled {
+        color: #5d8747;
+        pointer-events: none;
+        background-color: transparent;
+    }
+
+/*
+    Branding and header styles
+*/
+
+.mdc-global-header {
+    color: #ffffff;
+    font: normal 13px/59px Roboto, sans-serif;
+}
+
+.mdc-alt-global-header {
+    color: #ffffff;
+    font: normal 13px/59px Roboto, sans-serif;
+}
+
+.mdc-global-header a {
+    color: #ffffff;
+}
+
+.mdc-global-header__mdc-logo {
+    max-width: 60px;
+
+}
+
+.mdc-global-header__mdc-logo-small {
+    max-width: 35px;
+    /*background-color:aliceblue;*/
+}
+
+.mdc-global-header__mdc-logo-mobile {
+    max-width: 70px;
+}
+
+.mdc-footer_mdcgov-logo {
+    background-color: white;
+}
+
+.mdc-global-footer a {
+    color: white;
+}
+
+.mdc-bg-dark-blue {
+    background-color: #025988;
+    color: white
+}
+
+.mdc-bg-light-blue {
+    background-color: #02A2F7;
+    color: white
+}
+
+/*
+    Text and background color styles.
+*/
+
+.green {
+    background-color: #5d8747;
+    color: #ffffff;
+}
+
+.white {
+    background-color: white;
+}
+
+.red {
+    color: #A30000;
+}
+
+.greenText {
+    background-color: white;
+    color: #5d8747;
+}
+
+.smallText {
+    font-size: smaller;
+}
+
+.normalText {
+    font-weight: 400;
+}
+
+
+.redAsterisk {
+    color: #A30000;
+    font-size: 16px;
+}
+
+.blue {
+    background-color: #025988;
+    color: #ffffff;
+}
+
+.whiteText {
+    color: white;
+}
+
+.blueBoldText {
+    color: #025988;
+    font-weight: bold;
+}
+
+.lightskyblue {
+    background-color: #87cefa;
+}
+
+/*
+    Size, margins and padding styles.
+*/
+
+.percent50 {
+    width: 50%;
+}
+
+.setMarginsLeft20 {
+    margin-left: 20px;
+}
+
+.paddingNone {
+    padding: 0px;
+}
+
+.padding5 {
+    padding: 10px;
+}
+
+.padding10 {
+    padding: 10px;
+}
+
+.paddingTopNone {
+    padding-top: 0px;
+}
+
+.paddingTop5 {
+    padding-top: 10px;
+}
+
+.paddingTop10 {
+    padding-top: 10px;
+}
+
+/*
+    Other styles
+*/
+
+.title_height1 {
+    height: 2em;
+}
+
+.sub-titles {
+    font-size: 1.6rem;
+    font-weight: bold;
+    height: .9em;
+}
+
+.label-success {
+    background-color: #3A833A;
+}
+
+.label-danger {
+    background-color: #D33B36;
+}
+
+.label-primary {
+    background-color: #337ab7;
+}
+
+.rightColumn {
+    width: 10%;
+    float: right;
+    text-align: right;
+    vertical-align: central;
+    justify-content: right;
+}
+
+.rightColumn20 {
+    width: 20%;
+    padding-left: 12px;
+    float: right;
+    text-align: justify;
+    justify-content: right;
+    line-height: 14px;
+}
+
+.rightColumn30 {
+    width: 30%;
+    padding-left: 12px;
+    float: right;
+    text-align: justify;
+    justify-content: right;
+    line-height: 14px;
+}
+
+.rightColumn40 {
+    width: 40%;
+    padding-left: 12px;
+    float: right;
+    text-align: justify;
+    justify-content: right;
+    line-height: 14px;
+}
+
+

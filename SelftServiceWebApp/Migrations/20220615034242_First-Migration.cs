@@ -190,6 +190,7 @@ namespace SelftServiceWebApp.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+
             migrationBuilder.InsertData(
                 table: "ElevatorUnits",
                 columns: new[] { "Id", "Location", "UnitId" },

@@ -16,8 +16,11 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddMvc().AddRazorPagesOptions(options =>
 {
-    options.Conventions.AddPageRoute("/NewComplaint", "");
+    options.Conventions.AddPageRoute("/LandingPage", "");
 });
+
+
+
 
 var app = builder.Build();
 
