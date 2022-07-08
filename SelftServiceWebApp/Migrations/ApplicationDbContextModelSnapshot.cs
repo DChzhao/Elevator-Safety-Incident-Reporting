@@ -226,11 +226,11 @@ namespace SelftServiceWebApp.Migrations
 
             modelBuilder.Entity("SelftServiceWebApp.Models.Complaint", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("StateSerialNumber")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    b.Property<string>("ContactInformation")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
@@ -241,10 +241,13 @@ namespace SelftServiceWebApp.Migrations
                     b.Property<int>("ElevatorUnitId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("StateSerialNumber");
 
                     b.HasIndex("ElevatorUnitId");
 
@@ -260,6 +263,9 @@ namespace SelftServiceWebApp.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StateNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UnitId")

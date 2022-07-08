@@ -7,7 +7,7 @@ namespace SelftServiceWebApp.Models
         [Key]
         public int Id { get; set; }
         public string? UnitId { get; set; }
-
+        public string? StateNumber { get; set; }
         public string? Location { get; set; }
 
         public ICollection<Complaint>? Complaints { get; set;}
