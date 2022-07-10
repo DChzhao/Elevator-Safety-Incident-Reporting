@@ -56,7 +56,8 @@ namespace SelftServiceWebApp.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UnitId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     StateNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EquipmentDescription = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -175,6 +176,12 @@ namespace SelftServiceWebApp.Migrations
                 {
                     StateSerialNumber = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ContactInformation = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BldgName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BldgAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    State = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Id = table.Column<int>(type: "int", nullable: false),
                     Created = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ElevatorUnitId = table.Column<int>(type: "int", nullable: false),
@@ -194,13 +201,14 @@ namespace SelftServiceWebApp.Migrations
 
             migrationBuilder.InsertData(
                 table: "ElevatorUnits",
-                columns: new[] { "Id", "Location", "StateNumber", "UnitId" },
-                values: new object[] { 1, "FIU", null, "1" });
-
-            migrationBuilder.InsertData(
-                table: "ElevatorUnits",
-                columns: new[] { "Id", "Location", "StateNumber", "UnitId" },
-                values: new object[] { 2, "COUNTY", null, "2" });
+                columns: new[] { "Id", "EquipmentDescription", "Location", "StateNumber", "UnitId" },
+                values: new object[,]
+                {
+                    { 1, "ELECTRIC", null, null, "1" },
+                    { 2, "HYDRAULIC", null, null, "2" },
+                    { 3, "ESCALATOR", null, null, "3" },
+                    { 4, "WHEELCHAIR LIFT", null, null, "4" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

@@ -11,15 +11,15 @@ namespace SelftServiceWebApp.Models
         public string? StateSerialNumber { get; set; }
         [DisplayName("Please enter your email address")]
         public string? ContactInformation { get; set; }
-        public string? EquipmentDescription { get; set; }
-        public string? Name { get; set; }
+        [DisplayName("Please enter the building name")]
+        public string? BldgName { get; set; }
+        [DisplayName("Please enter the building address")]
         public string? BldgAddress { get; set; }
         public string? City { get; set; }
         public string? State { get; set; }
 
         public string? ZipCode { get; set; }
-        public string? FName { get; set; }
-        public string? LName { get; set; }
+  
         public string? Phone { get; set; }
 
 
