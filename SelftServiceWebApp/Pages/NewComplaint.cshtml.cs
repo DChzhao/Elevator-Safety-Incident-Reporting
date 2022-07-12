@@ -29,7 +29,7 @@ namespace SelftServiceWebApp.Pages
                                   new SelectListItem
                                   {
                                       Value = a.Id.ToString(),
-                                      Text = a.UnitId + " - " + a.Location,
+                                      Text = a.UnitId + " - " + a.EquipmentDescription,
                                   }).ToList(); 
             return Page();
         }

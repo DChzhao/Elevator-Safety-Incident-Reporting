@@ -14,13 +14,77 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+ @*  <div class="form-inline">  use this for side by side name/lastname display*@
             <div class="form-group">
+                <label asp-for="Complaint.StateSerialNumber" class="control-label"></label>
+                <input asp-for="Complaint.StateSerialNumber" class="form-control" />
+                <span asp-validation-for="Complaint.StateSerialNumber" class="text-danger"></span>
+            </div>
+            <br />
+              
+
+             
+                <div class="form-group">
+                <label asp-for="Complaint.BldgName" class="control-label"></label>
+                <input asp-for="Complaint.BldgName" class="form-control" />
+                <span asp-validation-for="Complaint.BldgName" class="text-danger"></span>
+            </div>
+            <br />
+
+           <div class="form-group">
+                <label asp-for="Complaint.BldgAddress" class="control-label"></label>
+                <input asp-for="Complaint.BldgAddress" class="form-control" />
+                <span asp-validation-for="Complaint.BldgAddress" class="text-danger"></span>
+            </div>
+            <br />
+
+
+               <div class="form-group">
+                <label asp-for="Complaint.City" class="control-label"></label>
+                <input asp-for="Complaint.City" class="form-control" />
+                <span asp-validation-for="Complaint.City" class="text-danger"></span>
+            </div>
+            <br />
+
+                   <div class="form-group">
+                <label asp-for="Complaint.State" class="control-label"></label>
+                <input asp-for="Complaint.State" class="form-control" />
+                <span asp-validation-for="Complaint.State" class="text-danger"></span>
+            </div>
+            <br />
+
+            
+                   <div class="form-group">
+                <label asp-for="Complaint.ZipCode" class="control-label"></label>
+                <input asp-for="Complaint.ZipCode" class="form-control" />
+                <span asp-validation-for="Complaint.ZipCode" class="text-danger"></span>
+            </div>
+
+      
+
+                  <div class="form-group">
+                <label asp-for="Complaint.Phone" class="control-label"></label>
+                <input asp-for="Complaint.Phone" class="form-control" />
+                <span asp-validation-for="Complaint.Phone" class="text-danger"></span>
+            </div>
+            <br />
+
+                <div class="form-group">
+                <label asp-for="Complaint.ContactInformation" class="control-label"></label>
+                <input asp-for="Complaint.ContactInformation" class="form-control" />
+                <span asp-validation-for="Complaint.ContactInformation" class="text-danger"></span>
+            </div>
+            <br />
+
+   
+                <div class="form-group">
                 <label asp-for="Complaint.Created" class="control-label"></label>
                 <input asp-for="Complaint.Created" class="form-control" />
                 <span asp-validation-for="Complaint.Created" class="text-danger"></span>
             </div>
             <br />
-            <div class="form-group">
+                <div class="form-group">
                 <label asp-for="Complaint.ElevatorUnitId" class="control-label"></label>
                 <select asp-for="Complaint.ElevatorUnitId"  class ="form-control" asp-items="Model.ElevatorUnitsOptions"></select>
             </div>
@@ -34,11 +98,20 @@
             </div>
                <br />
             <div class="form-group">
+               
                 <label asp-for="Complaint.Description" class="control-label"></label>
-                <input asp-for="Complaint.Description" class="form-control" />
+             <textarea asp-for="Complaint.Description" class="form-control" text-wrap:normal" type="text" placeholder="Please add the descriprion here" style = "width: 150%;height: 100px"></textarea>
                 <span asp-validation-for="Complaint.Description" class="text-danger"></span>
+           
             </div>
             <br />
+
+
+  
+
+
+
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

@@ -226,11 +226,20 @@ namespace SelftServiceWebApp.Migrations
 
             modelBuilder.Entity("SelftServiceWebApp.Models.Complaint", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("StateSerialNumber")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    b.Property<string>("BldgAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BldgName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContactInformation")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
@@ -241,10 +250,22 @@ namespace SelftServiceWebApp.Migrations
                     b.Property<int>("ElevatorUnitId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("State")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<string>("ZipCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("StateSerialNumber");
 
                     b.HasIndex("ElevatorUnitId");
 
@@ -259,7 +280,13 @@ namespace SelftServiceWebApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("EquipmentDescription")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StateNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UnitId")
@@ -273,14 +300,26 @@ namespace SelftServiceWebApp.Migrations
                         new
                         {
                             Id = 1,
-                            Location = "FIU",
+                            EquipmentDescription = "ELECTRIC",
                             UnitId = "1"
                         },
                         new
                         {
                             Id = 2,
-                            Location = "COUNTY",
+                            EquipmentDescription = "HYDRAULIC",
                             UnitId = "2"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            EquipmentDescription = "ESCALATOR",
+                            UnitId = "3"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            EquipmentDescription = "WHEELCHAIR LIFT",
+                            UnitId = "4"
                         });
                 });
 
