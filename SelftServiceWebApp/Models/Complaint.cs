@@ -23,6 +23,7 @@ namespace SelftServiceWebApp.Models
         public string? Phone { get; set; }
 
 
+        public string? ConfirmID { get; set; } = " asdasd";
 
 
         public int Id { get; set; }
@@ -37,8 +38,7 @@ namespace SelftServiceWebApp.Models
     
     }
 
-
-   public enum ComplaintType
+    public enum ComplaintType
     {
         MalFunction,
         [Display(Name ="Not Working")]

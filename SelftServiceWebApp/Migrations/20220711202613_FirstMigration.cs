@@ -182,6 +182,7 @@ namespace SelftServiceWebApp.Migrations
                     State = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConfirmID = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Id = table.Column<int>(type: "int", nullable: false),
                     Created = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ElevatorUnitId = table.Column<int>(type: "int", nullable: false),

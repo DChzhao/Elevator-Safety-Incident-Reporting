@@ -1,13 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SelftServiceWebApp.Data;
+using SelftServiceWebApp.Models;
 
 namespace SelftServiceWebApp.Pages
 {
-    public class IndexModel : PageModel
+    public class CreatedComplaint : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ILogger<CreatedComplaint> _logger;
+        public string? msg = "hello";
+        public string Msg { get { return msg; } }
+        public void ID()
+        {
+            msg = "sad";
+        }
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public CreatedComplaint(ILogger<CreatedComplaint> logger)
         {
             _logger = logger;
         }

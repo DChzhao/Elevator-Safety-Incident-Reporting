@@ -12,7 +12,7 @@ using SelftServiceWebApp.Data;
 namespace SelftServiceWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220708033234_FirstMigration")]
+    [Migration("20220711202613_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -238,6 +238,9 @@ namespace SelftServiceWebApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConfirmID")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ContactInformation")

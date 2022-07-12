@@ -238,6 +238,9 @@ namespace SelftServiceWebApp.Migrations
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConfirmID")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ContactInformation")
                         .HasColumnType("nvarchar(max)");
 

@@ -5,7 +5,7 @@ namespace SelftServiceWebApp.Pages
 {
     public class LandingPageModel : PageModel
     {
-        private readonly ILogger<IndexModel> _zxc;
+        private readonly ILogger<CreatedComplaint> _zxc;
 
     
         public void OnGet()

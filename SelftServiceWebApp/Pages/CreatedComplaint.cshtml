@@ -1,9 +1,24 @@
 ﻿@page
-@model IndexModel
+@using SelftServiceWebApp.Models
+@model CreatedComplaint
 @{
     ViewData["Title"] = "Home page";
 }
 
+<hr />
+<div class="text-center">
+    <h1 class="display-4">Your Confirmation id is:   
+    </h1>
+
+    <div>
+        @{
+         //   string strTest = CreatedComplaint.msg;
+         
+         //   @Html.Raw(strTest); //This works and display as expected
+                                       
+    }
+
+ </div>
 <div class="text-center">
     <h2 class="display-4">Successfully Created Complaint</h2>
   <div>

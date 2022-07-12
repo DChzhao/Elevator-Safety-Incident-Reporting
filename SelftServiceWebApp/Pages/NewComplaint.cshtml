@@ -61,7 +61,7 @@
                 <span asp-validation-for="Complaint.ZipCode" class="text-danger"></span>
             </div>
 
-      
+       <br />
 
                   <div class="form-group">
                 <label asp-for="Complaint.Phone" class="control-label"></label>
@@ -89,14 +89,7 @@
                 <select asp-for="Complaint.ElevatorUnitId"  class ="form-control" asp-items="Model.ElevatorUnitsOptions"></select>
             </div>
                <br />
-            <div class="form-group">
-                <label asp-for="Complaint.Type"  class="control-label"></label>
-                <select asp-for="Complaint.Type" class="form-control"   asp-items="Html.GetEnumSelectList<ComplaintType>()">
-                    @*<option selected="selected" value="">Please select</option>*@
-                </select>
-                <span asp-validation-for="Complaint.Type"  class="text-danger"></span>
-            </div>
-               <br />
+
             <div class="form-group">
                
                 <label asp-for="Complaint.Description" class="control-label"></label>
@@ -113,7 +106,7 @@
 
 
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary"  />
             </div>
         </form>
     </div>
