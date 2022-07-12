@@ -174,7 +174,9 @@ namespace SelftServiceWebApp.Migrations
                 name: "Complaints",
                 columns: table => new
                 {
-                    StateSerialNumber = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StateSerialNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ContactInformation = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BldgName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BldgAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -182,7 +184,6 @@ namespace SelftServiceWebApp.Migrations
                     State = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Id = table.Column<int>(type: "int", nullable: false),
                     Created = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ElevatorUnitId = table.Column<int>(type: "int", nullable: false),
                     Type = table.Column<int>(type: "int", nullable: false),
@@ -190,7 +191,7 @@ namespace SelftServiceWebApp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Complaints", x => x.StateSerialNumber);
+                    table.PrimaryKey("PK_Complaints", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Complaints_ElevatorUnits_ElevatorUnitId",
                         column: x => x.ElevatorUnitId,

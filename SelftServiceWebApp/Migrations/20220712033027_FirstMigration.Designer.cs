@@ -12,7 +12,7 @@ using SelftServiceWebApp.Data;
 namespace SelftServiceWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220712020107_FirstMigration")]
+    [Migration("20220712033027_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -228,8 +228,11 @@ namespace SelftServiceWebApp.Migrations
 
             modelBuilder.Entity("SelftServiceWebApp.Models.Complaint", b =>
                 {
-                    b.Property<string>("StateSerialNumber")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("BldgAddress")
                         .HasColumnType("nvarchar(max)");
@@ -252,13 +255,13 @@ namespace SelftServiceWebApp.Migrations
                     b.Property<int>("ElevatorUnitId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("State")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StateSerialNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Type")
@@ -267,7 +270,7 @@ namespace SelftServiceWebApp.Migrations
                     b.Property<string>("ZipCode")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("StateSerialNumber");
+                    b.HasKey("Id");
 
                     b.HasIndex("ElevatorUnitId");
 

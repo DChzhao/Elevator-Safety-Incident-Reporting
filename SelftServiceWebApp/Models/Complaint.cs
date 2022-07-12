@@ -5,7 +5,8 @@ namespace SelftServiceWebApp.Models
 {
     public class Complaint
     {
-        [Key]
+    
+   
 
         [DisplayName("State Serial Number")]
         public string? StateSerialNumber { get; set; }
@@ -24,7 +25,7 @@ namespace SelftServiceWebApp.Models
 
 
 
-
+        [Key]
         public int Id { get; set; }
         public DateTime Created { get; set; }
 
