@@ -49,8 +49,8 @@
 
                    <div class="form-group">
                 <label asp-for="Complaint.State" class="control-label"></label>
-                <input asp-for="Complaint.State" class="form-control" />
-                <span asp-validation-for="Complaint.State" class="text-danger"></span>
+                <input asp-for="Complaint.State" class="form-control" value="FL" />
+                <span asp-validation-for="Complaint.State" class="text-danger" Text="FL"></span>
             </div>
             <br />
 
@@ -77,13 +77,7 @@
             </div>
             <br />
 
-   
-                <div class="form-group">
-                <label asp-for="Complaint.Created" class="control-label"></label>
-                <input asp-for="Complaint.Created" class="form-control" />
-                <span asp-validation-for="Complaint.Created" class="text-danger"></span>
-            </div>
-            <br />
+  
                 <div class="form-group">
                 <label asp-for="Complaint.ElevatorUnitId" class="control-label"></label>
                 <select asp-for="Complaint.ElevatorUnitId"  class ="form-control" asp-items="Model.ElevatorUnitsOptions"></select>

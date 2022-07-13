@@ -174,24 +174,24 @@ namespace SelftServiceWebApp.Migrations
                 name: "Complaints",
                 columns: table => new
                 {
-                    StateSerialNumber = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ContactInformation = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BldgName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BldgAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    City = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    State = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ConfirmID = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Id = table.Column<int>(type: "int", nullable: false),
-                    Created = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     ElevatorUnitId = table.Column<int>(type: "int", nullable: false),
                     Type = table.Column<int>(type: "int", nullable: false),
+                    StateSerialNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BldgName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BldgAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    State = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ContactInformation = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConfirmID = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Complaints", x => x.StateSerialNumber);
+                    table.PrimaryKey("PK_Complaints", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Complaints_ElevatorUnits_ElevatorUnitId",
                         column: x => x.ElevatorUnitId,
