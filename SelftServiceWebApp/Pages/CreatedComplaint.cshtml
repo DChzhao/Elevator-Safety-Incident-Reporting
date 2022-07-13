@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @using SelftServiceWebApp.Models
 @model CreatedComplaint
 @{
@@ -7,7 +7,7 @@
 
 <hr />
 <div class="text-center">
-    <h1 class="display-4">Your Confirmation id is:   
+    <h1 class="display-4">Your Confirmation id is:  @Html.Raw(Model.ConfirmID); 
     </h1>
 
     <div>

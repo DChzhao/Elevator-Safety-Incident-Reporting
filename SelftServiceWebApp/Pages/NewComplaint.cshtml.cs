@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -14,7 +15,7 @@ namespace SelftServiceWebApp.Pages
     {
         private readonly SelftServiceWebApp.Data.ApplicationDbContext _context;
         private string? confID;
-
+      
         public NewComplaintModel(SelftServiceWebApp.Data.ApplicationDbContext context)
         {
             _context = context;
@@ -23,8 +24,8 @@ namespace SelftServiceWebApp.Pages
         public IActionResult OnGet()
             
         {
-
-            ElevatorUnitsOptions = _context.ElevatorUnits.Select(a =>
+            
+        ElevatorUnitsOptions = _context.ElevatorUnits.Select(a =>
                                   new SelectListItem
                                   {
                                       Value = a.Id.ToString(),
@@ -35,6 +36,9 @@ namespace SelftServiceWebApp.Pages
 
         [BindProperty]
         public Complaint Complaint { get; set; } = default!;
+        [BindProperty]
+        [DisplayName("Do you agree to share the contact information")]
+        public bool contInfo { get; set; } = false;
 
         public List<SelectListItem> ElevatorUnitsOptions { get; set; }
 
@@ -44,59 +48,43 @@ namespace SelftServiceWebApp.Pages
             int n = _r.Next(min, max);
             return n;
         }
-        /*
-        protected void view_Click(object sender, EventArgs e)
-        {
-            List<int> ints = new List<int>();
-            for (int i = 0; i < 10; i++)
-            {
-               // Random rnd = new Random();
-                int randomNumber;
-                string strTemp;
-
-                randomNumber = F(1, 30);
-                strTemp = (string)Microsoft.VisualBasic.Interaction.Choose(randomNumber, "B", "!", "D", "2", "F", "3", "$", "4", "a", "5", "j", "6", "K", "7", "L", "8", "m", "9", "N", "p", "@", "X", "Y", "#", "G", "H", "%", "R", "w");
-                strPassword += strTemp;
-                i++;
-                Complaint.ConfirmID = strPassword;
-            }
-        }
-
-        */
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
 
 
-      
+
         public async Task<IActionResult> OnPostAsync()
         {
-            /*
-            List<int> ints = new List<int>();
-            for (int i = 0; i < 10; i++)
-            {
-                // Random rnd = new Random();
-                int randomNumber;
-                string strTemp;
 
-                randomNumber = F(1, 30);
-                strTemp = (string)Microsoft.VisualBasic.Interaction.Choose(randomNumber, "B", "!", "D", "2", "F", "3", "$", "4", "a", "5", "j", "6", "K", "7", "L", "8", "m", "9", "N", "p", "@", "X", "Y", "#", "G", "H", "%", "R", "w");
-                confID += strTemp;
-                i++;
-                Complaint.ConfirmID = confID;
-            }
-
-            */
             DateTime dt = DateTime.Now;
-            Complaint.ConfirmID  = string.Format(" CMP{0:yyyyMMddHHmmss}", dt);
-           
+            Complaint.ConfirmID = string.Format(" CMP{0:yyyyMMddHHmmss}", dt);
+
             if (!ModelState.IsValid || _context.Complaints == null || Complaint == null)
             {
                 return Page();
             }
 
+            if (contInfo && (string.IsNullOrEmpty(Complaint.ContactInformation) && string.IsNullOrEmpty(Complaint.Phone)))
+            {
+                ElevatorUnitsOptions = _context.ElevatorUnits.Select(a =>
+                               new SelectListItem
+                               {
+                                   Value = a.Id.ToString(),
+                                   Text = a.UnitId + " - " + a.EquipmentDescription,
+                               }).ToList();
+
+                if (string.IsNullOrEmpty(Complaint.ContactInformation) && string.IsNullOrEmpty(Complaint.Phone))
+                {
+                    ModelState.AddModelError("Complaint.ContactInformation", "Email required");
+                    ModelState.AddModelError("Complaint.Phone", "Phone required");
+                }
+
+                return Page();
+            }
+
+
             _context.Complaints.Add(Complaint);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./CreatedComplaint");
+            return RedirectToPage("./CreatedComplaint", new { ConfirmID = Complaint.ConfirmID});
         }
     }
 }

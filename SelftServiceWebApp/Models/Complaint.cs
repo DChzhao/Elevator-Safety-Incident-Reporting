@@ -48,8 +48,8 @@ namespace SelftServiceWebApp.Models
 
 
         [DisplayName("Please enter your email address")]
+        [EmailAddress]
         public string? ContactInformation { get; set; }
-
 
 
         [RegularExpression("^\\d{10}$", ErrorMessage = "Valid phone Number must be provided")]

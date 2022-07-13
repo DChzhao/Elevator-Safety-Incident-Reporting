@@ -8,21 +8,16 @@ namespace SelftServiceWebApp.Pages
     public class CreatedComplaint : PageModel
     {
         private readonly ILogger<CreatedComplaint> _logger;
-        public string? msg = "hello";
-        public string Msg { get { return msg; } }
-        public void ID()
-        {
-            msg = "sad";
-        }
-
+        [BindProperty]
+        public string? ConfirmID { get; set; } 
         public CreatedComplaint(ILogger<CreatedComplaint> logger)
         {
             _logger = logger;
         }
 
-        public void OnGet()
+        public void OnGet(string ConfirmID)
         {
-
+            this.ConfirmID = ConfirmID;
         }
     }
 }
