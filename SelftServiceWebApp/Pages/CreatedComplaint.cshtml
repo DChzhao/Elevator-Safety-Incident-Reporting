@@ -6,22 +6,15 @@
 }
 
 <hr />
-<div class="text-center">
-    <h1 class="display-4">Your Confirmation id is:  @Html.Raw(Model.ConfirmID); 
-    </h1>
 
-    <div>
-        @{
-         //   string strTest = CreatedComplaint.msg;
-         
-         //   @Html.Raw(strTest); //This works and display as expected
-                                       
-    }
-
- </div>
 <div class="text-center">
-    <h2 class="display-4">Successfully Created Complaint</h2>
+    <h1 class="display-4">Your complaint has been submitted succesfully</h1>
+             <br />
+              <div>
+    <div class="text-center">
+    <h6 class="display-5">Your Confirmation id is:  @Html.Raw(Model.ConfirmID) </h6>
+  </div>
   <div>
-    <a asp-page="NewComplaint">Create New Complaint</a>
+    <a asp-page="NewComplaint">Generate New Complaint</a>
 </div>
-</div>
+

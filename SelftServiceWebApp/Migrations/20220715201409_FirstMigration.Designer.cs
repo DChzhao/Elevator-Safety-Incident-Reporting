@@ -12,7 +12,7 @@ using SelftServiceWebApp.Data;
 namespace SelftServiceWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220713015613_FirstMigration")]
+    [Migration("20220715201409_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -255,7 +255,10 @@ namespace SelftServiceWebApp.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ElevatorUnitId")
+                    b.Property<int>("ElevatorType")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ElevatorUnitId")
                         .HasColumnType("int");
 
                     b.Property<string>("Phone")
@@ -268,9 +271,6 @@ namespace SelftServiceWebApp.Migrations
                     b.Property<string>("StateSerialNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
 
                     b.Property<string>("ZipCode")
                         .IsRequired()
@@ -311,7 +311,7 @@ namespace SelftServiceWebApp.Migrations
                         new
                         {
                             Id = 1,
-                            EquipmentDescription = "ELECTRIC",
+                            EquipmentDescription = "UNSPECIFIED",
                             UnitId = "1"
                         },
                         new
@@ -331,6 +331,12 @@ namespace SelftServiceWebApp.Migrations
                             Id = 4,
                             EquipmentDescription = "WHEELCHAIR LIFT",
                             UnitId = "4"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            EquipmentDescription = "ELECTRIC",
+                            UnitId = "5"
                         });
                 });
 
@@ -389,9 +395,7 @@ namespace SelftServiceWebApp.Migrations
                 {
                     b.HasOne("SelftServiceWebApp.Models.ElevatorUnit", null)
                         .WithMany("Complaints")
-                        .HasForeignKey("ElevatorUnitId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ElevatorUnitId");
                 });
 
             modelBuilder.Entity("SelftServiceWebApp.Models.ElevatorUnit", b =>

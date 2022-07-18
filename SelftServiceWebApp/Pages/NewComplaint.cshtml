@@ -22,9 +22,7 @@
                 <span asp-validation-for="Complaint.StateSerialNumber" class="text-danger"></span>
             </div>
             <br />
-              
 
-             
                 <div class="form-group">
                 <label asp-for="Complaint.BldgName" class="control-label"></label>
                 <input asp-for="Complaint.BldgName" class="form-control" />
@@ -60,15 +58,14 @@
                 <input asp-for="Complaint.ZipCode" class="form-control" />
                 <span asp-validation-for="Complaint.ZipCode" class="text-danger"></span>
             </div>
-
-
-                <br />               
+            <br />  
+                
                 <div class="form-group">
-                  <label asp-for="contInfo" class="control-label"></label>
+                <label asp-for="contInfo" class="control-label"></label>
                 <input type="checkbox" asp-for="contInfo"/>
                 <span asp-validation-for="contInfo" class="text-danger"></span>
                     </div>
-       <br />
+            <br />
 
                   <div class="form-group">
                 <label asp-for="Complaint.Phone" class="control-label"></label>
@@ -86,8 +83,8 @@
 
   
                 <div class="form-group">
-                <label asp-for="Complaint.ElevatorUnitId" class="control-label"></label>
-                <select asp-for="Complaint.ElevatorUnitId"  class ="form-control" asp-items="Model.ElevatorUnitsOptions"></select>
+                <label asp-for="Complaint.ElevatorType" class="control-label"></label>
+                <select asp-for="Complaint.ElevatorType"  class ="form-control" asp-items="Model.ElevatorUnitsOptions"></select>
             </div>
                <br />
 
@@ -99,11 +96,6 @@
            
             </div>
             <br />
-
-
-  
-
-
 
 
             <div class="form-group">

@@ -8,9 +8,9 @@ namespace SelftServiceWebApp.Models
         [Key]
         public int Id { get; set; }
         [DisplayName("Elevator Unit")]
-        public int ElevatorUnitId { get; set; }
+        public int ElevatorType { get; set; }
 
-        public ComplaintType Type { get; set; }
+        
         [DisplayName("State Serial Number")]
         [Required(ErrorMessage ="This field is required")]
         [RegularExpression("^\\d{5}$", ErrorMessage = "Please enter a valid 5 digits state serial number")]
@@ -44,37 +44,14 @@ namespace SelftServiceWebApp.Models
         [Required(ErrorMessage = "This field is required")]
         [RegularExpression("^\\d{5}$", ErrorMessage = "Valid 5 digits zip code must be provided")]
         public string? ZipCode { get; set; }
-
-
-
         [DisplayName("Please enter your email address")]
         [EmailAddress]
         public string? ContactInformation { get; set; }
-
-
         [RegularExpression("^\\d{10}$", ErrorMessage = "Valid phone Number must be provided")]
         public string? Phone { get; set; }
-
-
-
         public string? ConfirmID { get; set; } = " asdasd";
-
-
-
-  
-
-     
-
         public string? Description { get; set; }
-    
     }
 
-    public enum ComplaintType
-    {
-        MalFunction,
-        [Display(Name ="Not Working")]
-        NotWorking,
 
-
-    }
 }

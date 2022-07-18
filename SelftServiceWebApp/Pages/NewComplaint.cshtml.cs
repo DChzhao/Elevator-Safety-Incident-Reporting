@@ -37,7 +37,7 @@ namespace SelftServiceWebApp.Pages
         [BindProperty]
         public Complaint Complaint { get; set; } = default!;
         [BindProperty]
-        [DisplayName("Do you agree to share the contact information")]
+        [DisplayName("Do you agree to share the contact information? Check the texbox")]
         public bool contInfo { get; set; } = false;
 
         public List<SelectListItem> ElevatorUnitsOptions { get; set; }

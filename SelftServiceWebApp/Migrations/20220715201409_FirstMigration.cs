@@ -176,8 +176,7 @@ namespace SelftServiceWebApp.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ElevatorUnitId = table.Column<int>(type: "int", nullable: false),
-                    Type = table.Column<int>(type: "int", nullable: false),
+                    ElevatorType = table.Column<int>(type: "int", nullable: false),
                     StateSerialNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BldgName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BldgAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -187,7 +186,8 @@ namespace SelftServiceWebApp.Migrations
                     ContactInformation = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ConfirmID = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ElevatorUnitId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -196,8 +196,7 @@ namespace SelftServiceWebApp.Migrations
                         name: "FK_Complaints_ElevatorUnits_ElevatorUnitId",
                         column: x => x.ElevatorUnitId,
                         principalTable: "ElevatorUnits",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.InsertData(
@@ -205,10 +204,11 @@ namespace SelftServiceWebApp.Migrations
                 columns: new[] { "Id", "EquipmentDescription", "Location", "StateNumber", "UnitId" },
                 values: new object[,]
                 {
-                    { 1, "ELECTRIC", null, null, "1" },
+                    { 1, "UNSPECIFIED", null, null, "1" },
                     { 2, "HYDRAULIC", null, null, "2" },
                     { 3, "ESCALATOR", null, null, "3" },
-                    { 4, "WHEELCHAIR LIFT", null, null, "4" }
+                    { 4, "WHEELCHAIR LIFT", null, null, "4" },
+                    { 5, "ELECTRIC", null, null, "5" }
                 });
 
             migrationBuilder.CreateIndex(
