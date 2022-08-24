@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SelftServiceWebApp.Migrations
 {
-    public partial class FirstMigration : Migration
+    public partial class FistMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -177,7 +177,7 @@ namespace SelftServiceWebApp.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ElevatorType = table.Column<int>(type: "int", nullable: false),
-                    StateSerialNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StateSerialNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BldgName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BldgAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: false),

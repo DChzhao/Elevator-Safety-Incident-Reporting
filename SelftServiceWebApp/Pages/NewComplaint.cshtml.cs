@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
+using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using MimeKit;
 using SelftServiceWebApp.Data;
 using SelftServiceWebApp.Models;
 
@@ -79,10 +81,34 @@ namespace SelftServiceWebApp.Pages
 
                 return Page();
             }
-
-
             _context.Complaints.Add(Complaint);
             await _context.SaveChangesAsync();
+
+
+
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("Test Project", "dmitriizhao@gmail.com"));
+            message.To.Add(new MailboxAddress("Client", Complaint.ContactInformation));
+            message.Subject = "Elevator Complaint Test ";
+            message.Body = new TextPart("plain")
+            {
+                Text = "Thank you for using elevetor safety app,\n Your Confirmation ID is: " + Complaint.ConfirmID
+            };
+            using (var client = new SmtpClient())
+            {
+                client.Connect("smtp.gmail.com", 587, false);
+                client.Authenticate("dmitriizhao@gmail.com", "Password");
+               
+                client.Send(message);
+
+                client.Disconnect(true);
+            }
+
+
+
+
+
+
 
             return RedirectToPage("./CreatedComplaint", new { ConfirmID = Complaint.ConfirmID});
         }

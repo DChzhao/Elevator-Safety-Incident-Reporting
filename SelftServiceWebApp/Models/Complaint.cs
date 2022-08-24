@@ -7,12 +7,11 @@ namespace SelftServiceWebApp.Models
     {
         [Key]
         public int Id { get; set; }
-        [DisplayName("Elevator Unit")]
+        [DisplayName("Elevator Type")]
         public int ElevatorType { get; set; }
 
         
         [DisplayName("State Serial Number")]
-        [Required(ErrorMessage ="This field is required")]
         [RegularExpression("^\\d{5}$", ErrorMessage = "Please enter a valid 5 digits state serial number")]
         public string? StateSerialNumber { get; set; }
        

@@ -12,8 +12,8 @@ using SelftServiceWebApp.Data;
 namespace SelftServiceWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220715201409_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20220724221412_FistMigration")]
+    partial class FistMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -269,7 +269,6 @@ namespace SelftServiceWebApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StateSerialNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ZipCode")

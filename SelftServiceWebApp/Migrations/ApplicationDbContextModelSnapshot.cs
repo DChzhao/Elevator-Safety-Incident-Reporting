@@ -267,7 +267,6 @@ namespace SelftServiceWebApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StateSerialNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ZipCode")
